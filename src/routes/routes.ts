@@ -9,4 +9,4 @@ router.post("/books", booksController.saveBook);
 // User Story 4 - Update Book By Id Solution
 router.put("/books/:bookId", booksController.updateBook);
 
-router.delete("/books/delete/:bookId", booksController.deleteBookById);
+router.delete("/books/deleteById:bookId", booksController.deleteBook);

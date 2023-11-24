@@ -36,9 +36,14 @@ export const updateBook = async (req: Request, res: Response) => {
 	res.status(204).json(book);
 };
 
-export const deleteBookById = async (req: Request, res: Response) => {
-	const bookId = Number.parseInt(req.params.bookId);
+export const deleteBook = async (req: Request, res: Response) => {
+	const bookId = Number.parseInt(req.params.deleteById);
 console.log(bookId);
-	const response = await bookService.deleteBookById(bookId);
+try {
+		const response = await bookService.deleteById(bookId);
 	res.json(response).status(200);
+} catch (error) {
+	console.log(error)
+}
+
 };

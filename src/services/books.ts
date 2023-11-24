@@ -24,7 +24,7 @@ export const updateBook = async (bookId: number, book: Book) => {
 	});
 };
 
-export const deleteBookById = async (bookId: number) => {
+export const deleteById = async (bookId: number) => {
 //	throw new Error("Function not implemented.");
 await Book.destroy({
 	where: {
