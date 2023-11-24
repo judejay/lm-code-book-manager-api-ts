@@ -137,11 +137,10 @@ describe("POST /api/v1/books endpoint", () => {
 
 test("User should be able to delete a book by it's ID", async () => {
 	//Arrange
-	jest.spyOn(bookService, "deleteBookById").mock.calls.forEach( (call) => {
-		return("deleted "+ call);
-	})
+	jest.spyOn(bookService, "deleteBookById").mockResolvedValue(dummyBookData as Book[]);
+
 	const res = await request(app)
-			.post(`/api/v1/books/delete/2`)
+			.delete(`/api/v1/books/delete/1`)
 		// Assert
 		expect(res.statusCode).toEqual(200);
 })

@@ -36,14 +36,9 @@ export const updateBook = async (req: Request, res: Response) => {
 	res.status(204).json(book);
 };
 
-
 export const deleteBookById = async (req: Request, res: Response) => {
-	//maybe make it url
-	//const bookById = req.body;
 	const bookId = Number.parseInt(req.params.bookId);
-
+console.log(bookId);
 	const response = await bookService.deleteBookById(bookId);
-	res.status(200).json(bookId)
-
-
-}
+	res.json(response).status(200);
+};
