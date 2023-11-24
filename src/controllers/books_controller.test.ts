@@ -14,7 +14,7 @@ const dummyBookData = [
 		bookId: 1,
 		title: "The Hobbit",
 		author: "J. R. R. Tolkien",
-		description: "Someone finds a nice piece of jewellery while on holiday.",
+		description: "Someone finds a nice piece of jewelry while on holiday.",
 	},
 	{
 		bookId: 2,
@@ -133,3 +133,15 @@ describe("POST /api/v1/books endpoint", () => {
 		expect(res.statusCode).toEqual(400);
 	});
 });
+
+
+test("User should be able to delete a book by it's ID", async () => {
+	//Arrange
+	jest.spyOn(bookService, "deleteBookById").mock.calls.forEach( (call) => {
+		return("deleted "+ call);
+	})
+	const res = await request(app)
+			.post(`/api/v1/books/delete/2`)
+		// Assert
+		expect(res.statusCode).toEqual(200);
+})

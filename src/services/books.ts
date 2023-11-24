@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import { Book } from "../models/book";
 
 export const getBooks = async () => {
@@ -21,4 +22,14 @@ export const updateBook = async (bookId: number, book: Book) => {
 			bookId,
 		},
 	});
+};
+
+export const deleteBookById = async (bookId: number) => {
+//	throw new Error("Function not implemented.");
+await Book.destroy({
+	where: {
+		bookId : bookId
+	},
+});
+return Book.findAll();
 };
