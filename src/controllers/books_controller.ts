@@ -42,7 +42,7 @@ try {
 		const response = await bookService.deleteById(bookId);
 	res.json(response).status(200);
 } catch (error) {
-	console.log(error)
+	res.status(404).json({ message: (error as Error).message });
 }
 
 };

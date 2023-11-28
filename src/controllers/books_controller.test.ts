@@ -138,9 +138,21 @@ describe("POST /api/v1/books endpoint", () => {
 test("User should be able to delete a book by it's ID", async () => {
 	//Arrange
 	jest.spyOn(bookService, "deleteById").mockResolvedValue(dummyBookData as Book[]);
-
+	//Act
 	const res = await request(app)
 			.delete(`/api/v1/books/1`)
 		// Assert
 		expect(res.statusCode).toEqual(200);
-})
+});
+
+test("User trying to delete a book by Id that doesn't exist is handled", async () => {
+	//Arrange
+	jest.spyOn(bookService , "deleteById").mockResolvedValue( dummyBookData as Book[]);
+	//Act
+	const res = await request(app)
+		.delete("/api/v1/books/3")
+	//Assert
+	expect(res.statusCode).toEqual( 200);
+	expect(res.body).toEqual(dummyBookData);
+	expect(res.body.length).toEqual(2);
+});
