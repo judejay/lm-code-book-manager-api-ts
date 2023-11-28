@@ -132,6 +132,24 @@ describe("POST /api/v1/books endpoint", () => {
 		// Assert
 		expect(res.statusCode).toEqual(400);
 	});
+
+
+test("Validation error if attempt to save a book with an id that already exists", async () => {
+	//Arrange
+	jest.spyOn(bookService, "saveBook").mockImplementation(() => {
+		throw new Error("Validation Error");
+	});
+	//Act
+	const res = await request(app)
+	.post("/api/v1/books")
+	.send({bookId: 1,
+		title: "The Hobbit",
+		author: "J. R. R. Tolkien",
+		description: "Someone finds a nice piece of jewelry while on holiday."
+	});
+	//Assert
+	expect(res.statusCode).toEqual(400)
+});
 });
 
 
