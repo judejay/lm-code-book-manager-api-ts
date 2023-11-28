@@ -40,6 +40,8 @@ export const deleteBook = async (req: Request, res: Response) => {
 	const bookId = Number.parseInt(req.params.bookId);
 try {
 		const response = await bookService.deleteById(bookId);
+
+		if (!response) res.status(400)
 	res.json(response).status(200);
 } catch (error) {
 	res.status(404).json({ message: (error as Error).message });

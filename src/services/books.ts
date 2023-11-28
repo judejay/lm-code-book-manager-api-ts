@@ -26,10 +26,10 @@ export const updateBook = async (bookId: number, book: Book) => {
 
 export const deleteById = async (bookId: number) => {
 //	throw new Error("Function not implemented.");
-await Book.destroy({
+const deleted = await Book.destroy({
 	where: {
 		bookId : bookId
 	},
 });
-return Book.findAll();
+return deleted;
 };
