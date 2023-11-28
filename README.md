@@ -13,9 +13,8 @@ Implementation of delete by ID to Database comprising of:
 Test returns uses the destroy syntax to delete as the other method that Sequelize makes available doesn't fully delete. The destroy method will delete all that correspond to the field value. The ID is unique so should be only one.
 But can forsee how this is vulnerable potential misuse.   
 
-The test returns the original dummy object. 
+The test 1. 
 
 Using Postman the individual book is deleted returning the remaining books.
 
-	If that is not present is attempted to be deleted the list of existing books is returned.
-	Sequelize does not throw a validation error in this situation. 
+	If book that is not present is attempted to be deleted 0 is returned.
