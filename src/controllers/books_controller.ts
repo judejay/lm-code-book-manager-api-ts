@@ -37,8 +37,7 @@ export const updateBook = async (req: Request, res: Response) => {
 };
 
 export const deleteBook = async (req: Request, res: Response) => {
-	const bookId = Number.parseInt(req.params.deleteById);
-console.log(bookId);
+	const bookId = Number.parseInt(req.params.bookId);
 try {
 		const response = await bookService.deleteById(bookId);
 	res.json(response).status(200);

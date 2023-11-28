@@ -48,7 +48,7 @@ describe("GET /api/v1/books endpoint", () => {
 	test("books successfully returned as array of books", async () => {
 		// Arrange
 
-		// NB the "as" to `Book[]` takes care of all the missing properties added by sequelize
+		// NB theas" to `Book[]` takes care of all the missing properties added by sequelize
 		//    such as createdDate etc, that we don't care about for the purposes of this test
 		jest
 			.spyOn(bookService, "getBooks")
@@ -140,7 +140,7 @@ test("User should be able to delete a book by it's ID", async () => {
 	jest.spyOn(bookService, "deleteById").mockResolvedValue(dummyBookData as Book[]);
 
 	const res = await request(app)
-			.delete(`/api/v1/books/?deleteById=1`)
+			.delete(`/api/v1/books/1`)
 		// Assert
 		expect(res.statusCode).toEqual(200);
 })
