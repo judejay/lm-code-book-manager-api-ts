@@ -1,14 +1,5 @@
-# 📖 Minimalist Book Manager API
+Implementation of delete by ID to Database comprising of:
 
-## Introduction
-
-This is the starter repository for the Further APIs session. It provides a start to creating a Minimalist Book Manager API.
-
-### Pre-Requisites
-
--   NodeJS installed (v18.12.1 Long Term Support version at time of writing)
-
-### Technologies & Dependencies
 
 -   [TypeScript](https://www.typescriptlang.org/)
 -   [ExpressJS](https://expressjs.com/)
@@ -18,50 +9,10 @@ This is the starter repository for the Further APIs session. It provides a start
 -   [Supertest](https://www.npmjs.com/package/supertest)
 -   [ESLint](https://eslint.org/)
 
-### How to Get Started
 
--   Fork this repo to your Github and then clone the forked version of this repo
+Test returns uses the destroy syntax to delete as the other method that Sequelize makes available doesn't fully delete. The destroy method will delete all that correspond to the field value. The ID is unique so should be only one.
+But can forsee how this is vulnerable potential misuse.   
 
-### Running the application
+The test returns the original dummy object. 
 
-In order to run the unit tests run, firstly install the dependencies (if you haven't already done so)
-
-```
-npm install
-```
-
-Followed by:
-
-```
-npm start
-```
-
-### Running the Unit Tests
-
-In order to run the unit tests run, firstly install the dependencies (if you haven't already done so)
-
-```
-npm install
-```
-
-Followed by:
-
-```
-npm test
-```
-
-### Tasks
-
-Here are some tasks for you to work on:
-
-📘 Task 1: Implement the following User Story with tests.
-
-`User Story: As a user, I want to use the Book Manager API to delete a book using its ID`
-
-📘 Extension Task: Oh no! 😭 We've only covered the happy paths in the solution, can you figure out a way
-to add in exception handling to the project?
-
--   Clue 1: What if someone wants to add a book with an ID for a book that already exists? How do we handle this gracefully?
-
--   Clue 2: What if someone wants to find a book by an ID that doesn't yet exist?
-    How can we improve the API by handling errors gracefully and show a helpful message to the client?
+Using Postman the individual book is deleted returning the remaining books.
