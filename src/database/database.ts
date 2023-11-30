@@ -3,7 +3,7 @@ import { CONFIG } from "../config";
 
 
 export let sequelize : Sequelize;
-const connString = `postgres://bookshopuser:super-secret-password@127.0.0.1:5432/bookshop`;
+const connString = `postgres://${CONFIG.dbUserName}:${CONFIG.dbPassword}@${CONFIG.dbHost}:${CONFIG.dbPort}/bookshop`;
 
 
 

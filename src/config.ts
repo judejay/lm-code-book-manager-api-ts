@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config({ path: __dirname+'/.env' });
 
 export const CONFIG = {
 	nodeEnv: process.env.NODE_ENV ?? "dev",
