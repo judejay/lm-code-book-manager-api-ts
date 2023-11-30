@@ -1,5 +1,7 @@
 import * as dotenv from "dotenv";
+
 dotenv.config();
+
 export const CONFIG = {
 	nodeEnv: process.env.NODE_ENV ?? "dev",
 	port: process.env.PORT ?? 3000,
